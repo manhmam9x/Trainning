@@ -27,7 +27,6 @@ class CheckLogin
                 return $next($request);
             }else
             {
-                //return redirect()->route('admin.login');
                 return Redirect::back()->withErrors(['msg' => 'Tài Khoản chưa được kích hoạt']);
             }
         }

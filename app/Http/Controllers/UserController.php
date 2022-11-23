@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmail;
 use App\Models\User;
 use http\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
@@ -91,8 +93,16 @@ class UserController extends Controller
         $user->avatar = $avatar;
         $user->save();
 
+        //Gửi mail xác nhận
+        Mail::send('mail.create', compact('user'), function ($email) use ($user){
+            $email->subject('Đăng Ký Thành Công');
+            $email->to($user->email, $user->name);
+        });
+
         return redirect()->route('admin.user.index');
     }
+
+
 
     /**
      * Display the specified resource.
@@ -207,6 +217,12 @@ class UserController extends Controller
         }
 
         $user->save();
+
+        //Gửi mail xác nhận
+        Mail::send('mail.update', compact('user'), function ($email) use ($user){
+            $email->subject('Cập Nhật Thành Công');
+            $email->to($user->email, $user->name);
+        });
 
         return redirect()->route('admin.user.index');
     }

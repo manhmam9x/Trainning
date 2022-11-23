@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,6 @@ Route::controller(AdminController::class)->group(function (){
 // Admin
 Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin', 'as' => 'admin.'], function(){
 
-    Route::resource('user', App\Http\Controllers\UserController::class);
+    Route::resource('user', UserController::class);
 
 });
