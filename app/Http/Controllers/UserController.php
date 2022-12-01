@@ -152,28 +152,6 @@ class UserController extends Controller
             'avatar.image' => 'File ảnh phải có định dạng jpeg,png,jpg,gif,svg',
         ]);
 
-        $role_id = $request->input('role_id');
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
-
-        //kiem tra hàm có trống hay k
-        $is_active = 0; //default
-        if ($request->has('is_active')){
-            $is_active = $request->input('is_active');
-        }
-
-        $user = User::find($id);
-        $user->role_id = $role_id;
-        $user->name = $name;
-        $user->email = $email;
-        $user->is_active = $is_active;
-
-
-        $user->save(); // lưu vào cơ sở dữ liệu
-
-
-
         // Kiểm tra mật khẩu có trùng khớp k
         $pwd1 = $request->input('password1');
         $pwd2 = $request->input('password2');

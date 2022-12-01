@@ -8,7 +8,8 @@
             </div>
             <div class="pull-left info">
                 <p>{{ Auth::user()->name }}</p>
-                <a href="{{ route('admin.user.edit', ['user' => Auth::user()->id ]) }}"><i class="fa fa-circle text-success"></i> Online</a>
+                <a href="{{ route('admin.user.edit', ['user' => Auth::user()->id ]) }}"><i
+                        class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
         <!-- search form -->
@@ -24,7 +25,7 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header" >BẢNG ĐIỂU KHIỂN</li>
+            <li class="header">BẢNG ĐIỂU KHIỂN</li>
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-bullhorn" aria-hidden="true"></i> <span>BẢNG ĐIỂU KHIỂN</span>
@@ -33,12 +34,18 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-            <li>
-                <a href="{{ route('admin.user.index') }}">
-                    <i class="fa fa-user-o" aria-hidden="true"></i> <span> QL Người Dùng</span>
-                </a>
-            </li>
-        </ul>
+                    <li>
+                        <a href="{{ route('admin.user.index') }}">
+                            <i class="fa fa-user-o" aria-hidden="true"></i> <span> QL Người Dùng</span>
+                        </a>
+                    </li>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.article.index') }}">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>QL Bài Viết</span>
+                        </a>
+                    </li>
+                </ul>
     </section>
     <!-- /.sidebar -->
 </aside>
